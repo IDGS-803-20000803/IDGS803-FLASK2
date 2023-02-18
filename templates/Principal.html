@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <form class="from-horizontal" action="/resultado" method="POST">
+        <div class="control-group">
+          <label for="" class="control-label">Numero</label>
+          <div class="controls">
+            <input type="text" name="txtNum" placeholder="Numero" value="">
+          </div>
+        </div>
+       
+        <div class="control-group">
+          <button type="submit" class="btn btn-default btn-primary">
+            <i class="icon-book icon-white"></i>Abrir
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

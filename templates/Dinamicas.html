@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% from "_macros.html" import render_input %}
+<div class="col-xs-6">
+  <h1>BOX DINAMICS</h1>
+  <form action="" action="/resultado" method="post">
+    {% for fields in range(fields) %}
+    {{ render_input("txtNum" ~ field, field, type="number") }}
+    {% endfor %}
+    <div class="control-group">
+        <button type="submit" class="btn btn-default btn-primary">
+          <i class="icon-book icon-white"></i>Calcular
+        </button>
+      </div>
+  </form>
+</div>
+
+{% endblock %}

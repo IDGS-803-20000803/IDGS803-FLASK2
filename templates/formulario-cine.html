@@ -1,0 +1,50 @@
+
+{% extends "cinepolis.html" %}
+
+{% block content %}
+<h1 style="padding-top: 1rem">Club Cinepolis</h1>
+<div class="container">
+  <div class="row">
+    <form class="from-horizontal" action="/resultado" method="POST" style="margin-left: 40px; border:solid 4px;">
+    <h2 style="padding-top: 1rem; color: blue;">Entradas</h1>
+      <div class="control-group">
+        <label for="" class="control-label">Nombre:</label>
+        <div class="controls">
+          <input type="text" id="txtNombre" name="txtNombre" placeholder="Nombre" value="">
+        </div>
+      </div>
+      <div class="control-group">
+        <label for="" class="control-label">Cantidad Compradores:</label>
+        <div class="controls">
+          <input type="number" id="txtCompradores" name="txtCompradores" placeholder="Cantidad Compradores">
+        </div>
+      </div>
+      <div class="control-group">
+        <label for="" class="control-label">Tarjeta Cineco:</label>
+        <input type="radio" id="si" name="respuesta" value="si">
+        <label for="si">Si</label>
+        <input type="radio" id="no" name="respuesta" value="no">
+        <label for="no">No</label>
+      </div>
+      <div class="control-group mb-3">
+        <label for="" class="control-label">Cantidad de Boletos:</label>
+        <div class="controls">
+          <input type="number" id="txtCantidadB" name="txtCantidadB" placeholder="Cantidad Boletos">
+        </div>
+      </div>
+  
+    <input type="submit" value="Procesar">
+    <input type="reset" value="Salir">
+  </form>
+  <div class="div2" style="margin-left: 5rem;">
+  <h2 style="padding-top: 1rem; color: blue;">Salidas</h1>
+    <div class="control-group">
+      <label for="" class="control-label">Valor a Pagar:</label>
+      <div class="controls">
+        <input type="text" id="txtValorP" name="txtValorP" placeholder="Valor a Pagar" value="{{span}} {{nombre}} {{res}}">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
