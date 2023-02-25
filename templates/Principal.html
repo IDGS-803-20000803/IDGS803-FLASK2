@@ -1,22 +1,21 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container-fluid">
     <div class="row">
+      <div class="col-5"></div>
+      <div class="col-3">
+      <br><br>
       <form class="from-horizontal" action="/resultado" method="POST">
-        <div class="control-group">
-          <label for="" class="control-label">Numero</label>
-          <div class="controls">
-            <input type="text" name="txtNum" placeholder="Numero" value="">
-          </div>
-        </div>
-       
-        <div class="control-group">
-          <button type="submit" class="btn btn-default btn-primary">
-            <i class="icon-book icon-white"></i>Abrir
-          </button>
-        </div>
+        <div class="input-group">
+          <div class="input-group-text" id="estiloInputText">Cantidad de Entradas:</div>
+          <input  class="form-control"  type="text" name="txtNum" placeholder="Numero" value=""/>
+      </div>
+      <div class="my-3 text-center">
+        <button type="submit" class="btn btn-outline-primary" ><i class="fa fa-save mx-1"></i>Generar</button>
+     </div>
       </form>
+    </div>
     </div>
   </div>
 {% endblock %}

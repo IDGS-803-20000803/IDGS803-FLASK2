@@ -3,18 +3,22 @@
 {% block content %}
 
 {% from "_macros.html" import render_input %}
-<div class="col-xs-6">
-  <h1>BOX DINAMICS</h1>
-  <form action="" action="/resultado" method="post">
-    {% for fields in range(fields) %}
-    {{ render_input("txtNum" ~ field, field, type="number") }}
-    {% endfor %}
-    <div class="control-group">
-        <button type="submit" class="btn btn-default btn-primary">
-          <i class="icon-book icon-white"></i>Calcular
-        </button>
+<div class="container-fluid">
+  <div class="row">
+      <div class="">
+        <h1>BOX DINAMICS</h1>
+        <form class="from-horizontal" action="/calcular" method="POST">
+          {% for i in range(numberFields) %}
+          {{ render_input("txtNum", "N"~(i + 1), type="number") }}
+          {% endfor %}
+          <div class="my-3 text-center">
+            <button type="submit" class="btn btn-outline-primary" >
+            <i class="fa fa-save mx-1"></i>Calcular</button>
+         </div>
+      
+        </form>
       </div>
-  </form>
+    </div>
+  </div>
 </div>
-
 {% endblock %}

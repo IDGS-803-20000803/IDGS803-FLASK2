@@ -1,63 +1,92 @@
-
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/bootstrap/css/bootstrap.min.css"
+    />
+    <title>Box Dinamics</title>
+    <style>
+      header {
+        width: 100%;
+        height: 100%;
+      }
+      header nav {
+        height: 80px;
+        background: #131311;
+        display: flex;
+        justify-content: space-between;
+      }
+      nav .logo {
+        height: 100%;
+        margin-left: 40px;
+        margin-top: 5px;
+      }
+      @keyframes lateralIzquierda {
+        from {
+          left: 300px;
+        }
+        to {
+          left: 0px;
+        }
+      }
+      .enlaces {
+        display: flex;
+        height: 100%;
+        width: 60%;
+        justify-content: space-around;
+        align-items: center;
+        font-family: sans-serif;
+      }
+      .enlaces a {
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid transparent;
+        padding: 4px 0;
+        transition: 0.9s ease-out;
+        color: rgb(255, 252, 252);
+        text-decoration: none;
+        font-size: 18px;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.min.css">
+      .enlaces a:hover,
+      .activar {
+        border-bottom: 2px solid #ff0000;
+      }
+      nav .logo img {
+        object-fit: cover;
+        width: 70px;
+        position: relative;
+        animation-name: lateralIzquierda;
+        animation-duration: 7s;
+        animation-fill-mode: forwards;
+      }
+    </style>
+  </head>
 
-  <title>Primera Pagina</title>
-  <style>
-    body {
-      padding-top: 60px;
-    }
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="../static/img/logo.png" alt="" />
+        </div>
+        <div class="enlaces uno" id="enlaces">
+          <a href="#" class="activar">UTL-IDGS 803</a>
+          <a href="#">Home</a>
+          <a href="#">Usuarios</a>
+          <a href="#">Alumnos</a>
+        </div>
+      </nav>
+    </header>
 
-    .tr-head {
-      background-color: #dff0d8;
-    }
-  </style>
-
-</head>
-
-<body>
-  <div class="navbar navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <a class="brand" href="">
-          UTL-IDGS
-        </a>
-        <ul class="nav">
-          <li class="active">
-            <a href="">
-              <i class="icon-home icon-white"></i>
-              Home
-            </a>
-          </li>
-          <li class="active">
-            <a href="">
-              <i class="icon-user icon-white"></i>
-              Usuarios
-            </a>
-          </li>
-          <li class="active">
-            <a href="">
-              <i class="icon-user icon-white"></i>
-              Alumnos
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-
-  </div>
-  {% block content%}
-
-  {% endblock %}
-</body>
-<script type="text/javascript" src="../static/bootstrap/js/bootstrap.bundle.js"></script>
+    <div class="container"></div>
+    {% block content%} {% endblock %}
+  </body>
+  <script
+    type="text/javascript"
+    src="../static/bootstrap/js/bootstrap.bundle.js"
+  ></script>
 </html>
