@@ -8,6 +8,7 @@
       <div class="">
         <h1>BOX DINAMICS</h1>
         <form class="from-horizontal" action="/calcular" method="POST">
+          
           {% for i in range(numberFields) %}
           {{ render_input("txtNum", "N"~(i + 1), type="number") }}
           {% endfor %}

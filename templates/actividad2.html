@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="col-x3-6">
+    {% from "_macros.html" import render_field %}
+
+    <div class="form-container form-container-left">
+        <form action="" method="POST" novalidate>
+            <section id="section1">
+                <div class="form-control">
+                    {{ render_field(formGuardar.espanol) }}
+                    {{ render_field(formGuardar.ingles) }}
+                    <input type="submit" name="guardar" value="Guardar">
+                    <input type="reset" name="limpiar" value="Limpiar">
+                </div>
+            </section>
+        </form>
+    </div>
+
+    <div class="form-container form-container-right">
+        <form action="" method="POST" novalidate>
+            <section id="section2">
+                <div class="form-control">
+                    {{ render_field(formBuscar.palabra_buscar) }}
+                    {{ render_field(formBuscar.respuesta) }}
+                    <input type="submit" name="buscar" value="Buscar">
+                    <input type="reset" name="limpiar" value="Limpiar">
+
+                    <div>
+                        {% if result %}
+                        <div class="form-control">
+                            <h1><p>{{ result }}</p></h1>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+        </form>
+    </div>
+</div>
+{% endblock %}
