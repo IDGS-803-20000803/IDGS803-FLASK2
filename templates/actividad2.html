@@ -1,41 +1,91 @@
-{% extends "layout.html" %}
-
-{% block content %}
-<div class="col-x3-6">
-    {% from "_macros.html" import render_field %}
-
-    <div class="form-container form-container-left">
-        <form action="" method="POST" novalidate>
-            <section id="section1">
-                <div class="form-control">
-                    {{ render_field(formGuardar.espanol) }}
-                    {{ render_field(formGuardar.ingles) }}
-                    <input type="submit" name="guardar" value="Guardar">
-                    <input type="reset" name="limpiar" value="Limpiar">
+{% extends "layout.html" %} {% block content %}
+<div class="row">
+  {% from "_macros.html" import render_field %}
+  <div class="col-12 align-items-center">
+    <form action="" method="POST" novalidate>
+        {{formGuardar.csrf_token}}
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+      <section id="section1">
+        <div class="form-control">
+          {{ render_field(formGuardar.espanol) }} {{
+          render_field(formGuardar.ingles) }}
+          <div class="row">
+            <div class="col-md-2">
+              <div class="input-group">
+                <div class="input-group-text">
+                  <i class="fas fa-file-download" style="font-size: 17px"></i>
                 </div>
-            </section>
-        </form>
-    </div>
+                <input
+                  type="submit"
+                  class="btn btn-outline-success"
+                  name="guardar"
+                  value="Guardar"
+                />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="input-group">
+                <div class="input-group-text">
+                  <i class="fas fa-trash" style="font-size: 17px"></i>
+                </div>
+                <input
+                  type="reset"
+                  class="btn btn-outline-danger"
+                  name="limpiar"
+                  value="Limpiar"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </form>
+  </div>
 
-    <div class="form-container form-container-right">
-        <form action="" method="POST" novalidate>
-            <section id="section2">
-                <div class="form-control">
-                    {{ render_field(formBuscar.palabra_buscar) }}
-                    {{ render_field(formBuscar.respuesta) }}
-                    <input type="submit" name="buscar" value="Buscar">
-                    <input type="reset" name="limpiar" value="Limpiar">
-
-                    <div>
-                        {% if result %}
-                        <div class="form-control">
-                            <h1><p>{{ result }}</p></h1>
-                        </div>
-                        {% endif %}
+  <div class="row">
+    <div class="col-12 align-items-center">
+      <form action="" method="POST" novalidate>
+        {{formBuscar.csrf_token}}
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <section id="section2">
+          <div class="form-control">
+            {{ render_field(formBuscar.palabra_buscar) }} {{
+            render_field(formBuscar.respuesta) }}
+            <div class="row">
+                <div class="col-md-2">
+                  <div class="input-group">
+                    <div class="input-group-text">
+                      <i class="fas fa-search" style="font-size: 17px"></i>
                     </div>
+                    <input type="submit" class="btn btn-outline-success"
+                    name="buscar" value="Buscar" />
+                  </div>
                 </div>
-            </section>
-        </form>
+                <div class="col-md-2">
+                  <div class="input-group">
+                    <div class="input-group-text">
+                      <i class="fas fa-trash" style="font-size: 17px"></i>
+                    </div>
+                    <input
+                      type="reset"
+                      class="btn btn-outline-danger"
+                      name="limpiar"
+                      value="Limpiar"
+                    />
+                  </div>
+                </div>
+              </div>
+            <div>
+              {% if result %}
+              <div class="form-control">
+                <h1><p>{{ result }}</p></h1>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </section>
+      </form>
     </div>
+  </div>
 </div>
 {% endblock %}

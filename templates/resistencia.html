@@ -1,0 +1,54 @@
+{% extends "layout.html" %} {% block content %} {% from "_macros.html" import
+render_field %}
+<img
+  src="../static/img/resistencia.jpg"
+  style="display: block; margin: auto; height: 200px; width: 200px"
+/>
+<div class="row">
+  <div class="col-4"></div>
+  <div class="col-4">
+    <form method="POST" action="/resis" novalidate style="text-align: center">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+      {{ render_field(formRes.band1) }} {{ render_field(formRes.band2) }} {{
+      render_field(formRes.multiplier) }} {{ render_field(formRes.tolerance) }}
+      <br />
+      <button
+        type="submit"
+        class="btn btn-success"
+        style="
+          background-color: rgba(18, 135, 146, 0.671);
+          border-color: rgb(32, 115, 218);
+          border-radius: 5px;
+        "
+      >
+        Calcular
+      </button>
+    </form>
+  </div>
+</div>
+{% if resistance_value is not none %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Color de la banda 1</th>
+      <th>Color de la banda 2</th>
+      <th>Color de la banda 3</th>
+      <th>Color de la banda 4</th>
+      <th>Valor</th>
+      <td>Maximo:</td>
+      <td>Minimo:</td>
+    </tr>
+  </thead>
+  <tbody style="align-content: center">
+    <tr>
+      <td style="background-color: {{band1_name}}"></td>
+      <td style="background-color: {{band2_name}}"></td>
+      <td style="background-color: {{multiplier_color}}"></td>
+      <td style="background-color: {{tolerance_name}}"></td>
+      <td>{{ resistance_value }}</td>
+      <td>{{ resistance_max }}</td>
+      <td>{{ resistance_min }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endif %} {% endblock %}
